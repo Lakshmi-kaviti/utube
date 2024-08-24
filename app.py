@@ -36,10 +36,9 @@ def likepredict():
         genre = request.form.get('genre')
         print(views, dislikes, comment, genre)
 
-        with open("model.pkl","rb") as mod:
+        with open("model.pkl",'rb') as mod:
             model = pickle.load(mod)
-        pred = model.predict([[float(views), float(dislikes), float(comment), float(genre)]])
-
+        pred = model.predict([[float(views),float(dislikes),float(comment),float(genre)]])
         return render_template('results.html', pred = str(round(pred[0])))
     else:
         return render_template('likepredict.html')

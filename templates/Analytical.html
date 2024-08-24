@@ -9,24 +9,36 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #121212;
-            color: #ffffff;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Changed overflow to only hide horizontal overflow */
         }
 
         header {
-            background-color: #1f1f1f;
-            padding: 1rem;
+            background: linear-gradient(135deg, #ff0099, #493240);
+            padding: 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: background 0.3s ease;
         }
 
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         nav ul li {
@@ -34,14 +46,12 @@
         }
 
         nav ul li a {
-            color: #ffffff;
+            color: #f5f5f5;
             text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ff5252;
+            font-size: 1.3rem;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         main {
@@ -49,29 +59,28 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            flex: 1;
+            margin-top: 80px; /* Space to prevent overlap with header */
+            overflow-y: auto; /* Allow vertical scrolling if content exceeds the viewport height */
+            padding-bottom: 80px; /* Add padding to avoid overlap with the footer */
         }
 
         .tableauPlaceholder {
-            margin: 0 auto;
-            width: 100%;
-            max-width: 1169px;
-            height: 854px;
-            position: relative;
+            width: 100vw;
+            height: calc(100vh - 160px); /* Adjust height to account for header and footer */
             background: #1f1f1f;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
         }
 
         footer {
-            background-color: #1f1f1f;
-            padding: 1rem;
+            background: linear-gradient(135deg, #ff0099, #493240);
+            color: #f5f5f5;
             text-align: center;
-            margin-top: 50px;
-        }
-
-        footer p {
-            color: #b0b0b0;
+            padding: 1.5rem;
+            width: 100%;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -89,27 +98,36 @@
     </header>
     
     <main>
-        <div class='tableauPlaceholder' id='viz1724410929644' style='position: relative'><noscript><a href='#'>
-            <img alt='Summary ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sa&#47;SalesDashboard2024Update&#47;Summary&#47;1_rss.png' 
-            style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+        <div class='tableauPlaceholder' id='viz1724410929644'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Summary' src='https://public.tableau.com/static/images/Sa/SalesDashboard2024Update/Summary/1_rss.png' />
+                </a>
+            </noscript>
+            <object class='tableauViz'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                 <param name='embed_code_version' value='3' />
-                <param name='site_root' value='' /><param name='name' value='SalesDashboard2024Update&#47;Summary' />
-                <param name='tabs' value='no' /><param name='toolbar' value='yes' />
-                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sa&#47;SalesDashboard2024Update&#47;Summary&#47;1.png' />
-                <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' />
+                <param name='site_root' value='' />
+                <param name='name' value='SalesDashboard2024Update/Summary' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https://public.tableau.com/static/images/Sa/SalesDashboard2024Update/Summary/1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
                 <param name='language' value='en-US' />
             </object>
-        </div>                
-        <script type='text/javascript'>                    
-        var divElement = document.getElementById('viz1724410929644');          
-        var vizElement = divElement.getElementsByTagName('object')[0];             
-        vizElement.style.width='1300px';vizElement.style.height='927px';       
-        var scriptElement = document.createElement('script');        
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);               
-        
+        </div>
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1724410929644');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width = '100%';
+            vizElement.style.height = '100%';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
         </script>
     </main>
 
@@ -118,4 +136,3 @@
     </footer>
 </body>
 </html>
-
